@@ -1,0 +1,26 @@
+# BasicInfoIpGetFlow
+
+main: kit: flow: BasicInfoIpGetFlow:
+{
+  entity: "info_ip_get",
+  kind: "basic",
+  name: "BasicInfoIpGetFlow",
+  step: [
+    {
+      match: {
+        ip: "ip01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "info_ip_get_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicInfoIpGetFlow"
+}

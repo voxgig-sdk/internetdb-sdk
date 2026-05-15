@@ -1,0 +1,19 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      description: "Fast IP lookups to get information about open ports"
+      servers: [
+        {
+          url: "https://internetdb.shodan.io"
+        }
+      ]
+      title: "InternetDB"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

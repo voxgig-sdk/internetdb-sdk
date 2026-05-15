@@ -1,0 +1,37 @@
+<?php
+declare(strict_types=1);
+
+// Internetdb SDK base feature
+
+class InternetdbBaseFeature
+{
+    public string $version;
+    public string $name;
+    public bool $active;
+
+    public function __construct()
+    {
+        $this->version = '0.0.1';
+        $this->name = 'base';
+        $this->active = true;
+    }
+
+    public function get_version(): string { return $this->version; }
+    public function get_name(): string { return $this->name; }
+    public function get_active(): bool { return $this->active; }
+
+    public function init(InternetdbContext $ctx, array $options): void {}
+    public function PostConstruct(InternetdbContext $ctx): void {}
+    public function PostConstructEntity(InternetdbContext $ctx): void {}
+    public function SetData(InternetdbContext $ctx): void {}
+    public function GetData(InternetdbContext $ctx): void {}
+    public function GetMatch(InternetdbContext $ctx): void {}
+    public function SetMatch(InternetdbContext $ctx): void {}
+    public function PrePoint(InternetdbContext $ctx): void {}
+    public function PreSpec(InternetdbContext $ctx): void {}
+    public function PreRequest(InternetdbContext $ctx): void {}
+    public function PreResponse(InternetdbContext $ctx): void {}
+    public function PreResult(InternetdbContext $ctx): void {}
+    public function PreDone(InternetdbContext $ctx): void {}
+    public function PreUnexpected(InternetdbContext $ctx): void {}
+}
