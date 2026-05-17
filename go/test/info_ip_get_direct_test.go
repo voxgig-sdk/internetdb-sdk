@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/internetdb-sdk"
-	"github.com/voxgig-sdk/internetdb-sdk/core"
+	sdk "github.com/voxgig-sdk/internetdb-sdk/go"
+	"github.com/voxgig-sdk/internetdb-sdk/go/core"
 )
 
 func TestInfoIpGetDirect(t *testing.T) {

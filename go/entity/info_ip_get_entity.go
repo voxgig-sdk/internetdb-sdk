@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/internetdb-sdk/core"
+	"github.com/voxgig-sdk/internetdb-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/internetdb-sdk/go/utility/struct"
 )
 
 type InfoIpGetEntity struct {

@@ -1,10 +1,10 @@
 package voxgiginternetdbsdk
 
 import (
-	"github.com/voxgig-sdk/internetdb-sdk/core"
-	"github.com/voxgig-sdk/internetdb-sdk/entity"
-	"github.com/voxgig-sdk/internetdb-sdk/feature"
-	_ "github.com/voxgig-sdk/internetdb-sdk/utility"
+	"github.com/voxgig-sdk/internetdb-sdk/go/core"
+	"github.com/voxgig-sdk/internetdb-sdk/go/entity"
+	"github.com/voxgig-sdk/internetdb-sdk/go/feature"
+	_ "github.com/voxgig-sdk/internetdb-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

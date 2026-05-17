@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/internetdb-sdk/core"
+	"github.com/voxgig-sdk/internetdb-sdk/go/core"
 )
 
 type BaseFeature struct {
