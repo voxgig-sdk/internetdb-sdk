@@ -15,9 +15,6 @@ module InternetdbConfig
       },
       "options" => {
         "base" => "https://internetdb.shodan.io",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },

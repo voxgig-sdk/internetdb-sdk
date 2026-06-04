@@ -12,8 +12,30 @@ main: {
       ]
       title: "InternetDB"
       version: "1.0.0"
+      tagline: "Fast IP lookups for open ports, hostnames, CPEs, tags, and known CVEs"
+      homepage: "https://internetdb.shodan.io"
+      docs_url: "https://internetdb.shodan.io"
+      license_short: "Free for non-commercial use; commercial use requires Shodan enterprise licensing"
+      license_md: `- Free to use for non-commercial purposes with no API key or account required
+- Commercial use requires enterprise licensing from Shodan
+- Data is provided as-is and reflects Shodan's most recent scan cycle
+- See the [Shodan terms of service](https://www.shodan.io/) for the full agreement`
+      about_md: `[InternetDB](https://internetdb.shodan.io) is a free, lightweight lookup service from [Shodan](https://www.shodan.io/) that returns a summary view of what Shodan knows about a public IPv4 address. It is intended for quick reconnaissance rather than the deep banner-level data offered by the full Shodan API.
+
+What you get from the API:
+
+- The queried IP address
+- The list of open \`ports\`
+- \`cpes\` (Common Platform Enumerations) detected on the host
+- Associated \`hostnames\`
+- \`tags\` describing the host (for example \`vpn\`, \`cloud\`)
+- Known \`vulns\` as CVE identifiers
+
+The service is unauthenticated and CORS-enabled, making it convenient to call directly from browsers, scripts, or CLI tools. Data is refreshed on a weekly cadence rather than in real time, and no banner content is included. Only public IPv4 addresses that Shodan has observed will return data; unknown addresses produce a 404.`
+      entity_desc: {
+        info_ip_get: "Per-IP reconnaissance record returned by `GET /{ip}` — the open ports, CPEs, hostnames, tags, and known CVE IDs Shodan has observed for that address."
+      }
+      auth: false
     }
   }
-}
-
 }

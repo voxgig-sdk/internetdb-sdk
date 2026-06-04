@@ -86,14 +86,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'INTERNETDB_TEST_INFO_IP_GET_ENTID': {},
     'INTERNETDB_TEST_LIVE': 'FALSE',
-    'INTERNETDB_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.INTERNETDB_TEST_LIVE
 
   if (live) {
     const client = new InternetdbSDK({
-      apikey: env.INTERNETDB_APIKEY,
     })
 
     let idmap: any = env['INTERNETDB_TEST_INFO_IP_GET_ENTID']
