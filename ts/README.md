@@ -10,7 +10,7 @@ The TypeScript SDK for the Internetdb API — a type-safe, entity-oriented clien
 
 ## Install
 ```bash
-npm install internetdb
+npm install @voxgig-sdk/internetdb
 ```
 ## Tutorial: your first API call
 

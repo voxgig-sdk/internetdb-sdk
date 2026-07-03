@@ -10,7 +10,7 @@ The PHP SDK for the Internetdb API — an entity-oriented client using PHP conve
 
 ## Install
 ```bash
-composer require voxgig/internetdb-sdk
+composer require voxgig-sdk/internetdb
 ```
 
 

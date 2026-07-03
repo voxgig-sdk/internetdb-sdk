@@ -10,7 +10,7 @@ The Lua SDK for the Internetdb API — an entity-oriented client using Lua conve
 
 ## Install
 ```bash
-luarocks install internetdb-sdk
+luarocks install voxgig-sdk-internetdb
 ```
 
 If the module is not yet published, add the source directory to

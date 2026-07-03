@@ -10,7 +10,7 @@ The Python SDK for the Internetdb API — an entity-oriented client following Py
 
 ## Install
 ```bash
-pip install internetdb-sdk
+pip install voxgig-sdk-internetdb
 ```
 
 Or install from source:

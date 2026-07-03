@@ -10,13 +10,13 @@ The Ruby SDK for the Internetdb API — an entity-oriented client using idiomati
 
 ## Install
 ```bash
-gem install internetdb-sdk
+gem install voxgig-sdk-internetdb
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "internetdb-sdk"
+gem "voxgig-sdk-internetdb"
 ```
 
 Then run:
