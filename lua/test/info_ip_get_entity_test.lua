@@ -94,6 +94,7 @@ function info_ip_get_basic_setup(extra)
     ["INTERNETDB_TEST_INFO_IP_GET_ENTID"] = idmap,
     ["INTERNETDB_TEST_LIVE"] = "FALSE",
     ["INTERNETDB_TEST_EXPLAIN"] = "FALSE",
+    ["INTERNETDB_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -105,6 +106,7 @@ function info_ip_get_basic_setup(extra)
   if env["INTERNETDB_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["INTERNETDB_APIKEY"],
       },
       extra or {},
     })

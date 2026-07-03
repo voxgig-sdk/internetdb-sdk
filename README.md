@@ -1,23 +1,8 @@
 # Internetdb SDK
 
-Fast IP lookups for open ports, hostnames, CPEs, tags, and known CVEs
+InternetDB client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About InternetDB
-
-[InternetDB](https://internetdb.shodan.io) is a free, lightweight lookup service from [Shodan](https://www.shodan.io/) that returns a summary view of what Shodan knows about a public IPv4 address. It is intended for quick reconnaissance rather than the deep banner-level data offered by the full Shodan API.
-
-What you get from the API:
-
-- The queried IP address
-- The list of open `ports`
-- `cpes` (Common Platform Enumerations) detected on the host
-- Associated `hostnames`
-- `tags` describing the host (for example `vpn`, `cloud`)
-- Known `vulns` as CVE identifiers
-
-The service is unauthenticated and CORS-enabled, making it convenient to call directly from browsers, scripts, or CLI tools. Data is refreshed on a weekly cadence rather than in real time, and no banner content is included. Only public IPv4 addresses that Shodan has observed will return data; unknown addresses produce a 404.
 
 ## Try it
 
@@ -51,29 +36,31 @@ gem install internetdb-sdk
 luarocks install internetdb-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { InternetdbSDK } from 'internetdb'
 
-const client = new InternetdbSDK({})
+const client = new InternetdbSDK({
+  apikey: process.env.INTERNETDB_APIKEY,
+})
 
 // List all infoipgets
 const infoipgets = await client.InfoIpGet().list()
+console.log(infoipgets.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -103,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **InfoIpGet** | Per-IP reconnaissance record returned by `GET /{ip}` — the open ports, CPEs, hostnames, tags, and known CVE IDs Shodan has observed for that address. | `/{ip}` |
+| **InfoIpGet** |  | `/{ip}` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -113,12 +100,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from internetdb_sdk import InternetdbSDK
 
-client = InternetdbSDK({})
+client = InternetdbSDK({
+    "apikey": os.environ.get("INTERNETDB_APIKEY"),
+})
 
 # List all infoipgets
-infoipgets, err = client.InfoIpGet(None).list(None, None)
+infoipgets, err = client.InfoIpGet().list()
+print(infoipgets)
 ```
 
 ### PHP
@@ -127,10 +118,13 @@ infoipgets, err = client.InfoIpGet(None).list(None, None)
 <?php
 require_once 'internetdb_sdk.php';
 
-$client = new InternetdbSDK([]);
+$client = new InternetdbSDK([
+    "apikey" => getenv("INTERNETDB_APIKEY"),
+]);
 
 // List all infoipgets
-[$infoipgets, $err] = $client->InfoIpGet(null)->list(null, null);
+[$infoipgets, $err] = $client->InfoIpGet()->list();
+print_r($infoipgets);
 ```
 
 ### Golang
@@ -138,10 +132,13 @@ $client = new InternetdbSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/internetdb-sdk/go"
 
-client := sdk.NewInternetdbSDK(map[string]any{})
+client := sdk.NewInternetdbSDK(map[string]any{
+    "apikey": os.Getenv("INTERNETDB_APIKEY"),
+})
 
 // List all infoipgets
 infoipgets, err := client.InfoIpGet(nil).List(nil, nil)
+fmt.Println(infoipgets)
 ```
 
 ### Ruby
@@ -149,10 +146,13 @@ infoipgets, err := client.InfoIpGet(nil).List(nil, nil)
 ```ruby
 require_relative "Internetdb_sdk"
 
-client = InternetdbSDK.new({})
+client = InternetdbSDK.new({
+  "apikey" => ENV["INTERNETDB_APIKEY"],
+})
 
 # List all infoipgets
-infoipgets, err = client.InfoIpGet(nil).list(nil, nil)
+infoipgets, err = client.InfoIpGet().list
+puts infoipgets
 ```
 
 ### Lua
@@ -160,10 +160,13 @@ infoipgets, err = client.InfoIpGet(nil).list(nil, nil)
 ```lua
 local sdk = require("internetdb_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("INTERNETDB_APIKEY"),
+})
 
 -- List all infoipgets
-local infoipgets, err = client:InfoIpGet(nil):list(nil, nil)
+local infoipgets, err = client:InfoIpGet():list()
+print(infoipgets)
 ```
 
 ## Unit testing in offline mode
@@ -182,25 +185,21 @@ const result = await client.InfoIpGet().load({ id: 'test01' })
 ### Python
 
 ```python
-client = InternetdbSDK.test(None, None)
-result, err = client.InfoIpGet(None).load(
-    {"id": "test01"}, None
-)
+client = InternetdbSDK.test()
+result, err = client.InfoIpGet().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = InternetdbSDK::test(null, null);
-[$result, $err] = $client->InfoIpGet(null)->load(
-    ["id" => "test01"], null
-);
+$client = InternetdbSDK::test();
+[$result, $err] = $client->InfoIpGet()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.InfoIpGet(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -209,19 +208,15 @@ result, err := client.InfoIpGet(nil).Load(
 ### Ruby
 
 ```ruby
-client = InternetdbSDK.test(nil, nil)
-result, err = client.InfoIpGet(nil).load(
-  { "id" => "test01" }, nil
-)
+client = InternetdbSDK.test
+result, err = client.InfoIpGet().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:InfoIpGet(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:InfoIpGet():load({ id = "test01" })
 ```
 
 ## How it works
@@ -325,15 +320,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the InternetDB
-
-- Upstream: [https://internetdb.shodan.io](https://internetdb.shodan.io)
-
-- Free to use for non-commercial purposes with no API key or account required
-- Commercial use requires enterprise licensing from Shodan
-- Data is provided as-is and reflects Shodan's most recent scan cycle
-- See the [Shodan terms of service](https://www.shodan.io/) for the full agreement
 
 ---
 

@@ -118,12 +118,14 @@ func info_ip_getDirectSetup(mockres any) *info_ip_getDirectSetupResult {
 	env := envOverride(map[string]any{
 		"INTERNETDB_TEST_INFO_IP_GET_ENTID": map[string]any{},
 		"INTERNETDB_TEST_LIVE":    "FALSE",
+		"INTERNETDB_APIKEY":       "NONE",
 	})
 
 	live := env["INTERNETDB_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["INTERNETDB_APIKEY"],
 		}
 		client := sdk.NewInternetdbSDK(mergedOpts)
 

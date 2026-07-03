@@ -114,6 +114,7 @@ function basicSetup(extra?: any) {
     'INTERNETDB_TEST_INFO_IP_GET_ENTID': idmap,
     'INTERNETDB_TEST_LIVE': 'FALSE',
     'INTERNETDB_TEST_EXPLAIN': 'FALSE',
+    'INTERNETDB_APIKEY': 'NONE',
   })
 
   idmap = env['INTERNETDB_TEST_INFO_IP_GET_ENTID']
@@ -123,6 +124,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new InternetdbSDK(merge([
       {
+        apikey: env.INTERNETDB_APIKEY,
       },
       extra
     ]))
