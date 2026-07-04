@@ -220,25 +220,15 @@ class InternetdbSDK:
         }
 
 
-    @property
-    def info_ip_get(self):
-        """Idiomatic facade: client.info_ip_get.list() / client.info_ip_get.load({"id": ...})."""
-        from entity.info_ip_get_entity import InfoIpGetEntity
-        cached = getattr(self, "_info_ip_get", None)
-        if cached is None:
-            cached = InfoIpGetEntity(self, None)
-            self._info_ip_get = cached
-        return cached
-
-    def InfoIpGet(self, data=None):
-        # Deprecated: use client.info_ip_get instead.
+    def InfoIpGet(self, data=None) -> "InfoIpGetEntity":
+        """Entity factory: client.InfoIpGet().list({}) / client.InfoIpGet().load({"id": ...})."""
         from entity.info_ip_get_entity import InfoIpGetEntity
         return InfoIpGetEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "InternetdbSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class InternetdbSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.info_ip_get_entity import InfoIpGetEntity

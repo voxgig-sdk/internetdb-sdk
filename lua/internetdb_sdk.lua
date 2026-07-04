@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:info_ip_get():list() / client:info_ip_get():load({ id = ... })
-function InternetdbSDK:info_ip_get(data)
+-- Idiomatic facade: client:InfoIpGet():list() / client:InfoIpGet():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function InternetdbSDK:InfoIpGet(data)
   local EntityMod = require("entity.info_ip_get_entity")
   if data == nil then
     if self._info_ip_get == nil then
@@ -253,12 +254,6 @@ function InternetdbSDK:info_ip_get(data)
     end
     return self._info_ip_get
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:info_ip_get() instead.
-function InternetdbSDK:InfoIpGet(data)
-  local EntityMod = require("entity.info_ip_get_entity")
   return EntityMod.new(self, data)
 end
 

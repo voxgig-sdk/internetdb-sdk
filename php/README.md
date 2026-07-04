@@ -29,18 +29,16 @@ require_once 'internetdb_sdk.php';
 $client = new InternetdbSDK();
 ```
 
-### 2. List infoipgets
+### 2. List infoipget records
 
 ```php
 try {
-    $result = $client->infoipget()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of InfoIpGet records — iterate directly.
+    $infoipgets = $client->InfoIpGet()->list();
+    foreach ($infoipgets as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = InternetdbSDK::test();
+$client = InternetdbSDK::test([
+    "entity" => ["infoipget" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->infoipget()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$infoipget = $client->InfoIpGet()->load(["id" => "test01"]);
+print_r($infoipget);
 ```
 
 ### Use a custom fetch function
@@ -171,7 +173,7 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `get_utility` | `(): Utility` | Copy of the SDK utility object. |
 | `prepare` | `(array $fetchargs): array` | Build an HTTP request definition without sending. |
 | `direct` | `(array $fetchargs): array` | Build and send an HTTP request. |
-| `InfoIpGet` | `($data): InfoIpGetEntity` | Create a InfoIpGet entity instance. |
+| `InfoIpGet` | `($data): InfoIpGetEntity` | Create an InfoIpGet entity instance. |
 
 ### Entity interface
 
@@ -233,7 +235,7 @@ API path: `/{ip}`
 
 ### InfoIpGet
 
-Create an instance: `const info_ip_get = client.info_ip_get`
+Create an instance: `$info_ip_get = $client->InfoIpGet();`
 
 #### Operations
 
@@ -254,8 +256,9 @@ Create an instance: `const info_ip_get = client.info_ip_get`
 
 #### Example: List
 
-```ts
-const info_ip_gets = await client.info_ip_get.list()
+```php
+// list() returns an array of InfoIpGet records (throws on error).
+$info_ip_gets = $client->InfoIpGet()->list();
 ```
 
 
@@ -330,7 +333,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$infoipget = $client->infoipget();
+$infoipget = $client->InfoIpGet();
 $infoipget->load(["id" => "example_id"]);
 
 // $infoipget->dataGet() now returns the loaded infoipget data

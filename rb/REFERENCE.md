@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## InfoIpGetEntity
 
 ```ruby
-info_ip_get = client.info_ip_get
+info_ip_get = client.InfoIpGet
 ```
 
 ### Fields
@@ -107,7 +107,7 @@ info_ip_get = client.info_ip_get
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.info_ip_get.list(nil)
+results = client.InfoIpGet.list(nil)
 ```
 
 ### Common Methods

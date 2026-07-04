@@ -28,16 +28,14 @@ require_relative "Internetdb_sdk"
 client = InternetdbSDK.new
 ```
 
-### 2. List infoipgets
+### 2. List infoipget records
 
 ```ruby
 begin
-  result = client.infoipget.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of InfoIpGet records — iterate directly.
+  infoipgets = client.InfoIpGet.list
+  infoipgets.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = InternetdbSDK.test
+client = InternetdbSDK.test({
+  "entity" => { "infoipget" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.infoipget.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+infoipget = client.InfoIpGet.load({ "id" => "test01" })
+puts infoipget
 ```
 
 ### Use a custom fetch function
@@ -167,7 +169,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> Hash` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> Hash` | Build and send an HTTP request. Returns a result hash (`result["ok"]`); does not raise. |
-| `InfoIpGet` | `(data) -> InfoIpGetEntity` | Create a InfoIpGet entity instance. |
+| `InfoIpGet` | `(data) -> InfoIpGetEntity` | Create an InfoIpGet entity instance. |
 
 ### Entity interface
 
@@ -228,7 +230,7 @@ API path: `/{ip}`
 
 ### InfoIpGet
 
-Create an instance: `const info_ip_get = client.info_ip_get`
+Create an instance: `info_ip_get = client.InfoIpGet`
 
 #### Operations
 
@@ -249,8 +251,9 @@ Create an instance: `const info_ip_get = client.info_ip_get`
 
 #### Example: List
 
-```ts
-const info_ip_gets = await client.info_ip_get.list()
+```ruby
+# list returns an Array of InfoIpGet records (raises on error).
+info_ip_gets = client.InfoIpGet.list
 ```
 
 
@@ -325,7 +328,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-infoipget = client.infoipget
+infoipget = client.InfoIpGet
 infoipget.load({ "id" => "example_id" })
 
 # infoipget.data_get now returns the loaded infoipget data

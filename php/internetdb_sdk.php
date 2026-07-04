@@ -233,10 +233,10 @@ class InternetdbSDK
 
     private $_info_ip_get = null;
 
-    // Idiomatic facade: $client->info_ip_get()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias InfoIpGet() (PHP method
-    // names are case-insensitive).
-    public function info_ip_get($data = null)
+    // Canonical facade: $client->InfoIpGet()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->info_ip_get()
+    // resolves here too.
+    public function InfoIpGet($data = null)
     {
         require_once __DIR__ . '/entity/info_ip_get_entity.php';
         if ($data === null) {

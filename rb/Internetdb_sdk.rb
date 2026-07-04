@@ -208,13 +208,7 @@ class InternetdbSDK
   end
 
 
-  # Idiomatic facade: client.info_ip_get.list / client.info_ip_get.load({ "id" => ... })
-  def info_ip_get
-    require_relative 'entity/info_ip_get_entity'
-    @info_ip_get ||= InfoIpGetEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.info_ip_get instead.
+  # Canonical facade: client.InfoIpGet.list / client.InfoIpGet.load({ "id" => ... })
   def InfoIpGet(data = nil)
     require_relative 'entity/info_ip_get_entity'
     InfoIpGetEntity.new(self, data)

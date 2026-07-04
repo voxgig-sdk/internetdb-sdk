@@ -28,15 +28,15 @@ import { InternetdbSDK } from '@voxgig-sdk/internetdb'
 const client = new InternetdbSDK()
 ```
 
-### 2. List infoipgets
+### 2. List infoipget records
+
+`list()` resolves to an array of InfoIpGet objects — iterate it directly:
 
 ```ts
-const result = await client.infoipget.list()
+const infoipgets = await client.InfoIpGet().list()
 
-if (result.ok) {
-  for (const item of result.data) {
-    console.log(item.id, item.name)
-  }
+for (const infoipget of infoipgets) {
+  console.log(infoipget)
 }
 ```
 
@@ -54,6 +54,9 @@ const result = await client.direct({
   params: { id: 'example' },
 })
 
+if (result instanceof Error) {
+  throw result
+}
 if (result.ok) {
   console.log(result.status)  // 200
   console.log(result.data)    // response body
@@ -82,9 +85,9 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = InternetdbSDK.test()
 
-const result = await client.infoipget.load({ id: 'test01' })
-// result.ok === true
-// result.data contains mock response data
+const infoipget = await client.InfoIpGet().load({ id: 'test01' })
+// infoipget is a bare entity populated with mock response data
+console.log(infoipget)
 ```
 
 You can also use the instance method:
@@ -99,7 +102,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.infoipget
+const entity = client.InfoIpGet()
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -177,7 +180,7 @@ new InternetdbSDK(options?: {
 | `utility()` | `Utility` | Deep copy of the SDK utility object. |
 | `prepare(fetchargs?)` | `Promise<FetchDef>` | Build an HTTP request definition without sending it. |
 | `direct(fetchargs?)` | `Promise<DirectResult>` | Build and send an HTTP request. |
-| `InfoIpGet(data?)` | `InfoIpGetEntity` | Create a InfoIpGet entity instance. |
+| `InfoIpGet(data?)` | `InfoIpGetEntity` | Create an InfoIpGet entity instance. |
 | `tester(testopts?, sdkopts?)` | `InternetdbSDK` | Create a test-mode client instance. |
 
 #### Static methods
@@ -194,29 +197,30 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `load(reqmatch?, ctrl?): Promise<Result>` | Load a single entity by match criteria. |
-| `list` | `list(reqmatch?, ctrl?): Promise<Result>` | List entities matching the criteria. |
-| `create` | `create(reqdata?, ctrl?): Promise<Result>` | Create a new entity. |
-| `update` | `update(reqdata?, ctrl?): Promise<Result>` | Update an existing entity. |
-| `remove` | `remove(reqmatch?, ctrl?): Promise<Result>` | Remove an entity. |
+| `load` | `load(reqmatch?, ctrl?): Promise<Entity>` | Load a single entity by match criteria. |
+| `list` | `list(reqmatch?, ctrl?): Promise<Entity[]>` | List entities matching the criteria. |
+| `create` | `create(reqdata?, ctrl?): Promise<Entity>` | Create a new entity. |
+| `update` | `update(reqdata?, ctrl?): Promise<Entity>` | Update an existing entity. |
+| `remove` | `remove(reqmatch?, ctrl?): Promise<void>` | Remove an entity. |
 | `data` | `data(data?): any` | Get or set entity data. |
 | `match` | `match(match?): any` | Get or set entity match criteria. |
 | `make` | `make(): Entity` | Create a new instance with the same options. |
 | `client` | `client(): InternetdbSDK` | Return the parent SDK client. |
 | `entopts` | `entopts(): object` | Return a copy of the entity options. |
 
-#### Result shape
+#### Return values
 
-All entity operations return a Result object:
+Entity operations resolve to the entity data directly — there is no
+result envelope:
 
-```ts
-{
-  ok: boolean      // true if the HTTP status is 2xx
-  status: number   // HTTP status code
-  headers: object  // response headers
-  data: any        // parsed JSON response body
-}
-```
+- `load`, `create` and `update` resolve to a single entity object.
+- `list` resolves to an **array** of entity objects (iterate it directly;
+  there is no `.data` and no `.ok`).
+- `remove` resolves to `void`.
+
+On a failed request these methods **throw**, so wrap calls in
+`try`/`catch` to handle errors. Only `direct()` returns the result
+envelope described below.
 
 ### DirectResult shape
 
@@ -270,7 +274,7 @@ API path: `/{ip}`
 
 ### InfoIpGet
 
-Create an instance: `const info_ip_get = client.info_ip_get`
+Create an instance: `const info_ip_get = client.InfoIpGet()`
 
 #### Operations
 
@@ -292,7 +296,7 @@ Create an instance: `const info_ip_get = client.info_ip_get`
 #### Example: List
 
 ```ts
-const info_ip_gets = await client.info_ip_get.list()
+const info_ip_gets = await client.InfoIpGet().list()
 ```
 
 
@@ -363,7 +367,7 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const infoipget = client.infoipget
+const infoipget = client.InfoIpGet()
 await infoipget.load({ id: "example_id" })
 
 // infoipget.data() now returns the loaded infoipget data

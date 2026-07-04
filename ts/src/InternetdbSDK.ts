@@ -204,14 +204,7 @@ class InternetdbSDK {
 
 
 
-  _info_ip_get?: InfoIpGetEntity
-
-  // Idiomatic facade: `client.info_ip_get.list()` / `client.info_ip_get.load({ id })`.
-  get info_ip_get(): InfoIpGetEntity {
-    return (this._info_ip_get ??= new InfoIpGetEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.info_ip_get` instead. */
+  // Entity access: `client.InfoIpGet().list()` / `client.InfoIpGet().load({ id })`.
   InfoIpGet(data?: any) {
     const self = this
     return new InfoIpGetEntity(self,data)

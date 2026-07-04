@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## InfoIpGetEntity
 
 ```php
-$info_ip_get = $client->info_ip_get();
+$info_ip_get = $client->InfoIpGet();
 ```
 
 ### Fields
@@ -106,7 +106,7 @@ $info_ip_get = $client->info_ip_get();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->info_ip_get()->list([]);
+$results = $client->InfoIpGet()->list([]);
 ```
 
 ### Common Methods

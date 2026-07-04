@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## InfoIpGetEntity
 
 ```python
-info_ip_get = client.info_ip_get
+info_ip_get = client.InfoIpGet()
 ```
 
 ### Fields
@@ -101,7 +101,9 @@ info_ip_get = client.info_ip_get
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.info_ip_get.list({})
+results = client.InfoIpGet().list({})
+for info_ip_get in results:
+    print(info_ip_get)
 ```
 
 ### Common Methods

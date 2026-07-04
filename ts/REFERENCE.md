@@ -109,7 +109,7 @@ Alias for `InternetdbSDK.test()`.
 ## InfoIpGetEntity
 
 ```ts
-const info_ip_get = client.info_ip_get
+const info_ip_get = client.InfoIpGet()
 ```
 
 ### Fields
@@ -130,7 +130,7 @@ const info_ip_get = client.info_ip_get
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.info_ip_get.list()
+const results = await client.InfoIpGet().list()
 ```
 
 ### Common Methods

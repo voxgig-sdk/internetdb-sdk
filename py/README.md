@@ -31,14 +31,16 @@ from internetdb_sdk import InternetdbSDK
 client = InternetdbSDK()
 ```
 
-### 2. List infoipgets
+### 2. List infoipget records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.infoipget.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    infoipgets = client.InfoIpGet().list({})
+    for infoipget in infoipgets:
+        print(infoipget)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = InternetdbSDK.test()
 
-result = client.infoipget.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+infoipget = client.InfoIpGet().load({"id": "test01"})
+# infoipget contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -163,7 +166,7 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
-| `InfoIpGet` | `(data) -> InfoIpGetEntity` | Create a InfoIpGet entity instance. |
+| `InfoIpGet` | `(data) -> InfoIpGetEntity` | Create an InfoIpGet entity instance. |
 
 ### Entity interface
 
@@ -225,7 +228,7 @@ API path: `/{ip}`
 
 ### InfoIpGet
 
-Create an instance: `const info_ip_get = client.info_ip_get`
+Create an instance: `info_ip_get = client.InfoIpGet()`
 
 #### Operations
 
@@ -246,8 +249,8 @@ Create an instance: `const info_ip_get = client.info_ip_get`
 
 #### Example: List
 
-```ts
-const info_ip_gets = await client.info_ip_get.list()
+```python
+info_ip_gets = client.InfoIpGet().list({})
 ```
 
 
@@ -321,7 +324,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-infoipget = client.infoipget
+infoipget = client.InfoIpGet()
 infoipget.load({"id": "example_id"})
 
 # infoipget.data_get() now returns the loaded infoipget data

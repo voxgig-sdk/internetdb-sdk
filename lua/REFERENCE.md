@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## InfoIpGetEntity
 
 ```lua
-local info_ip_get = client:info_ip_get(nil)
+local info_ip_get = client:InfoIpGet(nil)
 ```
 
 ### Fields
@@ -104,7 +104,7 @@ local info_ip_get = client:info_ip_get(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:info_ip_get():list()
+local results, err = client:InfoIpGet():list()
 ```
 
 ### Common Methods

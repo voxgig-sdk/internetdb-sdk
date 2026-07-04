@@ -26,9 +26,11 @@ import { InternetdbSDK } from '@voxgig-sdk/internetdb'
 
 const client = new InternetdbSDK()
 
-// List all infoipgets
-const infoipgets = await client.infoipget.list()
-console.log(infoipgets.data)
+// List all infoipgets (returns InfoIpGet[])
+const infoipgets = await client.InfoIpGet().list()
+for (const infoipget of infoipgets) {
+  console.log(infoipget)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -83,9 +85,10 @@ from internetdb_sdk import InternetdbSDK
 
 client = InternetdbSDK()
 
-# List all infoipgets
-infoipgets = client.infoipget.list()
-print(infoipgets)
+# List all infoipgets (returns a list, raises on error)
+infoipgets = client.InfoIpGet().list({})
+for infoipget in infoipgets:
+    print(infoipget)
 ```
 
 ### PHP
@@ -96,8 +99,8 @@ require_once 'internetdb_sdk.php';
 
 $client = new InternetdbSDK();
 
-// List all infoipgets (throws on error)
-$infoipgets = $client->infoipget()->list();
+// List all infoipgets (returns an array; throws on error)
+$infoipgets = $client->InfoIpGet()->list();
 print_r($infoipgets);
 ```
 
@@ -120,8 +123,8 @@ require_relative "Internetdb_sdk"
 
 client = InternetdbSDK.new
 
-# List all infoipgets
-infoipgets = client.infoipget.list
+# List all infoipgets (returns an Array; raises on error)
+infoipgets = client.InfoIpGet.list
 puts infoipgets
 ```
 
@@ -133,7 +136,7 @@ local sdk = require("internetdb_sdk")
 local client = sdk.new()
 
 -- List all infoipgets
-local infoipgets, err = client:infoipget():list()
+local infoipgets, err = client:InfoIpGet():list()
 print(infoipgets)
 ```
 
@@ -146,22 +149,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = InternetdbSDK.test()
-const result = await client.infoipget.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const infoipget = await client.InfoIpGet().load({ id: 'test01' })
+// infoipget is a bare InfoIpGet populated with mock data
+console.log(infoipget)
 ```
 
 ### Python
 
 ```python
 client = InternetdbSDK.test()
-result = client.infoipget.load({"id": "test01"})
+infoipget = client.InfoIpGet().load({"id": "test01"})
+print(infoipget)
 ```
 
 ### PHP
 
 ```php
-$client = InternetdbSDK::test();
-$result = $client->infoipget()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = InternetdbSDK::test([
+    "entity" => ["infoipget" => ["test01" => ["id" => "test01"]]],
+]);
+$infoipget = $client->InfoIpGet()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -176,15 +184,18 @@ result, err := client.InfoIpGet(nil).Load(
 ### Ruby
 
 ```ruby
-client = InternetdbSDK.test
-result = client.infoipget.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = InternetdbSDK.test({
+  "entity" => { "infoipget" => { "test01" => { "id" => "test01" } } },
+})
+infoipget = client.InfoIpGet.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:infoipget():load({ id = "test01" })
+local result, err = client:InfoIpGet():load({ id = "test01" })
 ```
 
 ## How it works
@@ -232,6 +243,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 
