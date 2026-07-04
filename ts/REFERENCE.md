@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `InternetdbSDK.test()`.
 ## InfoIpGetEntity
 
 ```ts
-const info_ip_get = client.InfoIpGet()
+const info_ip_get = client.info_ip_get
 ```
 
 ### Fields
@@ -131,7 +130,7 @@ const info_ip_get = client.InfoIpGet()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.InfoIpGet().list()
+const results = await client.info_ip_get.list()
 ```
 
 ### Common Methods

@@ -85,6 +85,27 @@ func (e *InfoIpGetEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an InfoIpGet; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *InfoIpGetEntity) DataTyped(data ...InfoIpGet) InfoIpGet {
+	if len(data) > 0 {
+		return typedFrom[InfoIpGet](e.Data(asMap(data[0])))
+	}
+	return typedFrom[InfoIpGet](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through InfoIpGet (all fields
+// optional at the wire level).
+func (e *InfoIpGetEntity) MatchTyped(match ...InfoIpGet) InfoIpGet {
+	if len(match) > 0 {
+		return typedFrom[InfoIpGet](e.Match(asMap(match[0])))
+	}
+	return typedFrom[InfoIpGet](e.Match())
+}
+
 func (e *InfoIpGetEntity) Load(_ map[string]any, _ map[string]any) (any, error) {
 	return core.UnsupportedOp("load", e.name)
 }
@@ -108,6 +129,17 @@ func (e *InfoIpGetEntity) List(reqmatch map[string]any, ctrl map[string]any) (an
 			}
 		}
 	})
+}
+
+// ListTyped is the statically-typed variant of List: it takes an
+// InfoIpGetListMatch and returns []InfoIpGet. It delegates to the untyped
+// List (identical runtime) and converts at the typed boundary.
+func (e *InfoIpGetEntity) ListTyped(reqmatch InfoIpGetListMatch, ctrl map[string]any) ([]InfoIpGet, error) {
+	res, err := e.List(asMap(reqmatch), ctrl)
+	if err != nil {
+		return nil, err
+	}
+	return typedSliceFrom[InfoIpGet](res), nil
 }
 
 

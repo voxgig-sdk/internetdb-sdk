@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:info_ip_get():list() / client:info_ip_get():load({ id = ... })
+function InternetdbSDK:info_ip_get(data)
+  local EntityMod = require("entity.info_ip_get_entity")
+  if data == nil then
+    if self._info_ip_get == nil then
+      self._info_ip_get = EntityMod.new(self, nil)
+    end
+    return self._info_ip_get
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:info_ip_get() instead.
 function InternetdbSDK:InfoIpGet(data)
   local EntityMod = require("entity.info_ip_get_entity")
   return EntityMod.new(self, data)

@@ -77,14 +77,12 @@ function info_ip_get_direct_setup(mockres)
   local env = runner.env_override({
     ["INTERNETDB_TEST_INFO_IP_GET_ENTID"] = {},
     ["INTERNETDB_TEST_LIVE"] = "FALSE",
-    ["INTERNETDB_APIKEY"] = "NONE",
   })
 
   local live = env["INTERNETDB_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["INTERNETDB_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

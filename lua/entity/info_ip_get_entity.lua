@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch InfoIpGetListMatch
+---@param ctrl? table
+---@return InfoIpGet[]
+---@return string? err
 function InfoIpGetEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

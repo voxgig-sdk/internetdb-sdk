@@ -52,8 +52,7 @@ class TestInfoIpGetEntity:
             "ip": setup["idmap"]["ip01"],
         }
 
-        info_ip_get_ref01_list_result, err = info_ip_get_ref01_ent.list(info_ip_get_ref01_match, None)
-        assert err is None
+        info_ip_get_ref01_list_result = info_ip_get_ref01_ent.list(info_ip_get_ref01_match, None)
         assert isinstance(info_ip_get_ref01_list_result, list)
 
 
@@ -94,7 +93,6 @@ def _info_ip_get_basic_setup(extra):
         "INTERNETDB_TEST_INFO_IP_GET_ENTID": idmap,
         "INTERNETDB_TEST_LIVE": "FALSE",
         "INTERNETDB_TEST_EXPLAIN": "FALSE",
-        "INTERNETDB_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -105,7 +103,6 @@ def _info_ip_get_basic_setup(extra):
     if env.get("INTERNETDB_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("INTERNETDB_APIKEY"),
             },
             extra or {},
         ])

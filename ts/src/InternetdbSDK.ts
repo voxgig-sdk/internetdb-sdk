@@ -2,6 +2,8 @@
 
 import { InfoIpGetEntity } from './entity/InfoIpGetEntity'
 
+export type * from './InternetdbTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class InternetdbSDK {
 
 
 
+  _info_ip_get?: InfoIpGetEntity
+
+  // Idiomatic facade: `client.info_ip_get.list()` / `client.info_ip_get.load({ id })`.
+  get info_ip_get(): InfoIpGetEntity {
+    return (this._info_ip_get ??= new InfoIpGetEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.info_ip_get` instead. */
   InfoIpGet(data?: any) {
     const self = this
     return new InfoIpGetEntity(self,data)

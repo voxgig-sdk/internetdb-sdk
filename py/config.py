@@ -15,9 +15,6 @@ def make_config():
         },
         "options": {
             "base": "https://internetdb.shodan.io",
-            "auth": {
-                "prefix": "Bearer",
-            },
             "headers": {
         "content-type": "application/json",
       },
@@ -88,6 +85,7 @@ def make_config():
                       "orig": "ip",
                       "reqd": True,
                       "type": "`$STRING`",
+                      "index$": 0,
                     },
                   ],
                 },

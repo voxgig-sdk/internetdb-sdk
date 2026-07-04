@@ -245,6 +245,9 @@ func (sdk *InternetdbSDK) Direct(fetchargs map[string]any) (map[string]any, erro
 }
 
 
+// InfoIpGet returns a InfoIpGet entity bound to this client.
+// Idiomatic usage: client.InfoIpGet(nil).List(nil, nil) or
+// client.InfoIpGet(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *InternetdbSDK) InfoIpGet(data map[string]any) InternetdbEntity {
 	return NewInfoIpGetEntityFunc(sdk, data)
 }

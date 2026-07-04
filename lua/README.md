@@ -9,12 +9,9 @@ The Lua SDK for the Internetdb API — an entity-oriented client using Lua conve
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-internetdb
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/internetdb-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("internetdb_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("INTERNETDB_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List infoipgets
 
 ```lua
-local result, err = client:InfoIpGet():list()
+local result, err = client:infoipget():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -93,7 +88,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Internetdb():load({ id = "test01" })
+local result, err = client:infoipget():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -127,7 +122,6 @@ Create a `.env.local` file at the project root:
 
 ```
 INTERNETDB_TEST_LIVE=TRUE
-INTERNETDB_APIKEY=<your-key>
 ```
 
 Then run:
@@ -150,7 +144,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -232,7 +225,7 @@ API path: `/{ip}`
 
 ### InfoIpGet
 
-Create an instance: `const info_ip_get = client.InfoIpGet()`
+Create an instance: `const info_ip_get = client.info_ip_get`
 
 #### Operations
 
@@ -254,7 +247,7 @@ Create an instance: `const info_ip_get = client.InfoIpGet()`
 #### Example: List
 
 ```ts
-const info_ip_gets = await client.InfoIpGet().list()
+const info_ip_gets = await client.info_ip_get.list()
 ```
 
 
@@ -329,11 +322,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local infoipget = client:infoipget()
+infoipget:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- infoipget:data_get() now returns the loaded infoipget data
+-- infoipget:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

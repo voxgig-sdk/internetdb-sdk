@@ -20,9 +20,6 @@ class InternetdbConfig
             ],
             "options" => [
                 "base" => "https://internetdb.shodan.io",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
@@ -93,6 +90,7 @@ class InternetdbConfig
                         'orig' => 'ip',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                   ],

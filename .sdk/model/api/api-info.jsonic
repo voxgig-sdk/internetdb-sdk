@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       description: "Fast IP lookups to get information about open ports"
       servers: [
         {
