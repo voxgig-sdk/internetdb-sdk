@@ -90,12 +90,12 @@ local info_ip_get = client:InfoIpGet(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpe` | ``$ARRAY`` | Yes |  |
-| `hostname` | ``$ARRAY`` | Yes |  |
-| `ip` | ``$STRING`` | Yes |  |
-| `port` | ``$ARRAY`` | Yes |  |
-| `tag` | ``$ARRAY`` | Yes |  |
-| `vuln` | ``$ARRAY`` | Yes |  |
+| `cpe` | `table` | Yes |  |
+| `hostname` | `table` | Yes |  |
+| `ip` | `string` | Yes |  |
+| `port` | `table` | Yes |  |
+| `tag` | `table` | Yes |  |
+| `vuln` | `table` | Yes |  |
 
 ### Operations
 

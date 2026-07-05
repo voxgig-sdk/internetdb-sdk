@@ -221,7 +221,7 @@ class InternetdbSDK:
 
 
     def InfoIpGet(self, data=None) -> "InfoIpGetEntity":
-        """Entity factory: client.InfoIpGet().list({}) / client.InfoIpGet().load({"id": ...})."""
+        """Entity factory: client.InfoIpGet().list() / client.InfoIpGet().load({"id": ...})."""
         from entity.info_ip_get_entity import InfoIpGetEntity
         return InfoIpGetEntity(self, data)
 

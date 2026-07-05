@@ -116,12 +116,12 @@ const info_ip_get = client.InfoIpGet()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpe` | ``$ARRAY`` | Yes |  |
-| `hostname` | ``$ARRAY`` | Yes |  |
-| `ip` | ``$STRING`` | Yes |  |
-| `port` | ``$ARRAY`` | Yes |  |
-| `tag` | ``$ARRAY`` | Yes |  |
-| `vuln` | ``$ARRAY`` | Yes |  |
+| `cpe` | `any[]` | Yes |  |
+| `hostname` | `any[]` | Yes |  |
+| `ip` | `string` | Yes |  |
+| `port` | `any[]` | Yes |  |
+| `tag` | `any[]` | Yes |  |
+| `vuln` | `any[]` | Yes |  |
 
 ### Operations
 

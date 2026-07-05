@@ -87,21 +87,21 @@ info_ip_get = client.InfoIpGet()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpe` | ``$ARRAY`` | Yes |  |
-| `hostname` | ``$ARRAY`` | Yes |  |
-| `ip` | ``$STRING`` | Yes |  |
-| `port` | ``$ARRAY`` | Yes |  |
-| `tag` | ``$ARRAY`` | Yes |  |
-| `vuln` | ``$ARRAY`` | Yes |  |
+| `cpe` | `list` | Yes |  |
+| `hostname` | `list` | Yes |  |
+| `ip` | `str` | Yes |  |
+| `port` | `list` | Yes |  |
+| `tag` | `list` | Yes |  |
+| `vuln` | `list` | Yes |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.InfoIpGet().list({})
+results = client.InfoIpGet().list()
 for info_ip_get in results:
     print(info_ip_get)
 ```

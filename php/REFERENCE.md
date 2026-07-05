@@ -45,11 +45,11 @@ $client = InternetdbSDK::test();
 
 Create a new `InfoIpGetEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): InternetdbUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,38 +92,38 @@ $info_ip_get = $client->InfoIpGet();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpe` | ``$ARRAY`` | Yes |  |
-| `hostname` | ``$ARRAY`` | Yes |  |
-| `ip` | ``$STRING`` | Yes |  |
-| `port` | ``$ARRAY`` | Yes |  |
-| `tag` | ``$ARRAY`` | Yes |  |
-| `vuln` | ``$ARRAY`` | Yes |  |
+| `cpe` | `array` | Yes |  |
+| `hostname` | `array` | Yes |  |
+| `ip` | `string` | Yes |  |
+| `port` | `array` | Yes |  |
+| `tag` | `array` | Yes |  |
+| `vuln` | `array` | Yes |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->InfoIpGet()->list([]);
+$results = $client->InfoIpGet()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -132,7 +132,7 @@ Set the entity match criteria.
 Create a new `InfoIpGetEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

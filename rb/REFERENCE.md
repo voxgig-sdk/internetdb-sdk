@@ -8,7 +8,7 @@ Complete API reference for the Internetdb Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'internetdb_sdk'
+require_relative 'Internetdb_sdk'
 
 client = InternetdbSDK.new(options)
 ```
@@ -93,21 +93,21 @@ info_ip_get = client.InfoIpGet
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpe` | ``$ARRAY`` | Yes |  |
-| `hostname` | ``$ARRAY`` | Yes |  |
-| `ip` | ``$STRING`` | Yes |  |
-| `port` | ``$ARRAY`` | Yes |  |
-| `tag` | ``$ARRAY`` | Yes |  |
-| `vuln` | ``$ARRAY`` | Yes |  |
+| `cpe` | `Array` | Yes |  |
+| `hostname` | `Array` | Yes |  |
+| `ip` | `String` | Yes |  |
+| `port` | `Array` | Yes |  |
+| `tag` | `Array` | Yes |  |
+| `vuln` | `Array` | Yes |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.InfoIpGet.list(nil)
+results = client.InfoIpGet.list
 ```
 
 ### Common Methods
