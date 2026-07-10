@@ -90,7 +90,8 @@ same parameters as `Direct()`.
 ## InfoIpGetEntity
 
 ```go
-info_ip_get := client.InfoIpGet(nil)
+infoIpGet := client.InfoIpGet(nil)
+fmt.Println(infoIpGet.GetName()) // "info_ip_get"
 ```
 
 ### Fields
@@ -112,6 +113,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.InfoIpGet(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

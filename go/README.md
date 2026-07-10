@@ -50,12 +50,12 @@ import (
 func main() {
     client := sdk.New()
 
-    // List infoipget records — the value is the array of records itself.
-    infoipgets, err := client.InfoIpGet(nil).List(nil, nil)
+    // List infoIpGet records — the value is the array of records itself.
+    infoIpGets, err := client.InfoIpGet(nil).List(nil, nil)
     if err != nil {
         panic(err)
     }
-    for _, item := range infoipgets.([]any) {
+    for _, item := range infoIpGets.([]any) {
         fmt.Println(item)
     }
 }
@@ -137,13 +137,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-infoipget, err := client.InfoIpGet(nil).List(
+infoIpGet, err := client.InfoIpGet(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(infoipget) // the returned mock data
+fmt.Println(infoIpGet) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -247,9 +247,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    infoipget, err := client.InfoIpGet(nil).List(map[string]any{/* fields */}, nil)
+    infoIpGet, err := client.InfoIpGet(nil).List(map[string]any{/* fields */}, nil)
     if err != nil { /* handle */ }
-    // infoipget is the returned record
+    // infoIpGet is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -278,7 +278,7 @@ API path: `/{ip}`
 
 ### InfoIpGet
 
-Create an instance: `info_ip_get := client.InfoIpGet(nil)`
+Create an instance: `infoIpGet := client.InfoIpGet(nil)`
 
 #### Operations
 
@@ -300,11 +300,11 @@ Create an instance: `info_ip_get := client.InfoIpGet(nil)`
 #### Example: List
 
 ```go
-info_ip_gets, err := client.InfoIpGet(nil).List(nil, nil)
+infoIpGets, err := client.InfoIpGet(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(info_ip_gets) // the array of records
+fmt.Println(infoIpGets) // the array of records
 ```
 
 

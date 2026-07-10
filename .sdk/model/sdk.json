@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -239,13 +236,16 @@
       "info": {
         "auth": false,
         "description": "Fast IP lookups to get information about open ports",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "url": "https://internetdb.shodan.io"
           }
         ],
+        "summary": "Fast IP lookups to get information about open ports",
         "title": "InternetDB",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://internetdb.shodan.io"
       },
       "option": {},
       "target": {
@@ -298,6 +298,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -348,6 +351,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

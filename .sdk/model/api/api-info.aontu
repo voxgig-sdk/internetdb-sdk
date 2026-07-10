@@ -11,9 +11,9 @@ main: {
           url: "https://internetdb.shodan.io"
         }
       ]
+      summary: "Fast IP lookups to get information about open ports"
       title: "InternetDB"
       version: "1.0.0"
+      website: "https://internetdb.shodan.io"
     }
   }
-}
-
