@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Internetdb SDK exists test
 
 local sdk = require("internetdb_sdk")
 
