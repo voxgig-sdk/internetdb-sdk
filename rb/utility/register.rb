@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ InternetdbUtility.registrar = ->(u) {
   u.prepare_params = InternetdbUtilities::PrepareParams
   u.prepare_path = InternetdbUtilities::PreparePath
   u.prepare_query = InternetdbUtilities::PrepareQuery
+  u.graphql_body = InternetdbUtilities::GraphqlBody
+  u.graphql_errors = InternetdbUtilities::GraphqlErrors
   u.result_basic = InternetdbUtilities::ResultBasic
   u.result_body = InternetdbUtilities::ResultBody
   u.result_headers = InternetdbUtilities::ResultHeaders

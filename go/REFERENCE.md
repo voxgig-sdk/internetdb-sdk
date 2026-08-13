@@ -98,12 +98,12 @@ fmt.Println(infoIpGet.GetName()) // "info_ip_get"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpe` | `[]any` | Yes |  |
-| `hostname` | `[]any` | Yes |  |
+| `cpes` | `[]any` | Yes |  |
+| `hostnames` | `[]any` | Yes |  |
 | `ip` | `string` | Yes |  |
-| `port` | `[]any` | Yes |  |
-| `tag` | `[]any` | Yes |  |
-| `vuln` | `[]any` | Yes |  |
+| `ports` | `[]any` | Yes |  |
+| `tags` | `[]any` | Yes |  |
+| `vulns` | `[]any` | Yes |  |
 
 ### Operations
 

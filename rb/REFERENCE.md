@@ -93,12 +93,12 @@ info_ip_get = client.InfoIpGet
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpe` | `Array` | Yes |  |
-| `hostname` | `Array` | Yes |  |
+| `cpes` | `Array` | Yes |  |
+| `hostnames` | `Array` | Yes |  |
 | `ip` | `String` | Yes |  |
-| `port` | `Array` | Yes |  |
-| `tag` | `Array` | Yes |  |
-| `vuln` | `Array` | Yes |  |
+| `ports` | `Array` | Yes |  |
+| `tags` | `Array` | Yes |  |
+| `vulns` | `Array` | Yes |  |
 
 ### Operations
 

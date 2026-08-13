@@ -218,9 +218,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local info_ip_get, err = client:InfoIpGet():load()
+    local info_ip_get, err = client:InfoIpGet():list()
     if err then error(err) end
-    -- info_ip_get is the loaded record
+    -- info_ip_get is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -231,12 +231,12 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `cpe` |  |
-| `hostname` |  |
+| `cpes` |  |
+| `hostnames` |  |
 | `ip` |  |
-| `port` |  |
-| `tag` |  |
-| `vuln` |  |
+| `ports` |  |
+| `tags` |  |
+| `vulns` |  |
 
 Operations: List.
 
@@ -261,12 +261,12 @@ Create an instance: `local info_ip_get = client:InfoIpGet(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cpe` | `table` |  |
-| `hostname` | `table` |  |
+| `cpes` | `table` |  |
+| `hostnames` | `table` |  |
 | `ip` | `string` |  |
-| `port` | `table` |  |
-| `tag` | `table` |  |
-| `vuln` | `table` |  |
+| `ports` | `table` |  |
+| `tags` | `table` |  |
+| `vulns` | `table` |  |
 
 #### Example: List
 

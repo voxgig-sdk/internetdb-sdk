@@ -64,7 +64,7 @@ describe('InfoIpGetEntity', async () => {
     const info_ip_get_ref01_match: any = {}
     info_ip_get_ref01_match['ip'] = setup.idmap['ip01']
 
-    const info_ip_get_ref01_list = await info_ip_get_ref01_ent.list(info_ip_get_ref01_match)
+    const info_ip_get_ref01_list = (await info_ip_get_ref01_ent.list(info_ip_get_ref01_match)).map((e: any) => e.data())
 
 
   })

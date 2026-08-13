@@ -7,12 +7,12 @@
 -- edit by hand.
 
 ---@class InfoIpGet
----@field cpe table
----@field hostname table
+---@field cpes table
+---@field hostnames table
 ---@field ip string
----@field port table
----@field tag table
----@field vuln table
+---@field ports table
+---@field tags table
+---@field vulns table
 
 ---@class InfoIpGetListMatch
 ---@field id string

@@ -116,12 +116,12 @@ const info_ip_get = client.InfoIpGet()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpe` | `any[]` | Yes |  |
-| `hostname` | `any[]` | Yes |  |
+| `cpes` | `any[]` | Yes |  |
+| `hostnames` | `any[]` | Yes |  |
 | `ip` | `string` | Yes |  |
-| `port` | `any[]` | Yes |  |
-| `tag` | `any[]` | Yes |  |
-| `vuln` | `any[]` | Yes |  |
+| `ports` | `any[]` | Yes |  |
+| `tags` | `any[]` | Yes |  |
+| `vulns` | `any[]` | Yes |  |
 
 ### Operations
 
@@ -130,7 +130,7 @@ const info_ip_get = client.InfoIpGet()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.InfoIpGet().list()
+const results = await client.InfoIpGet().list({ id: "example" })
 ```
 
 ### Common Methods

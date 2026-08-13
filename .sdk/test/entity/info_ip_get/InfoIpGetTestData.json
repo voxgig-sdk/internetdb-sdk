@@ -2,40 +2,40 @@
   "existing": {
     "info_ip_get": {
       "INFO_IP_GET00": {
-        "cpe": [],
-        "hostname": [],
+        "cpes": [],
+        "hostnames": [],
         "ip": "s3e",
-        "port": [],
-        "tag": [],
-        "vuln": []
+        "ports": [],
+        "tags": [],
+        "vulns": []
       },
       "INFO_IP_GET01": {
-        "cpe": [],
-        "hostname": [],
+        "cpes": [],
+        "hostnames": [],
         "ip": "s7a",
-        "port": [],
-        "tag": [],
-        "vuln": []
+        "ports": [],
+        "tags": [],
+        "vulns": []
       },
       "INFO_IP_GET02": {
-        "cpe": [],
-        "hostname": [],
+        "cpes": [],
+        "hostnames": [],
         "ip": "sb6",
-        "port": [],
-        "tag": [],
-        "vuln": []
+        "ports": [],
+        "tags": [],
+        "vulns": []
       }
     }
   },
   "new": {
     "info_ip_get": {
       "info_ip_get_ref01": {
-        "cpe": [],
-        "hostname": [],
+        "cpes": [],
+        "hostnames": [],
         "ip": "sf2",
-        "port": [],
-        "tag": [],
-        "vuln": []
+        "ports": [],
+        "tags": [],
+        "vulns": []
       }
     }
   }

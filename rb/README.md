@@ -37,7 +37,7 @@ begin
   # list returns an Array of InfoIpGet records — iterate directly.
   infoipgets = client.InfoIpGet.list
   infoipgets.each do |item|
-    puts "#{item["cpe"]}"
+    puts "#{item["cpes"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = InternetdbSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 infoipget = client.InfoIpGet.list()
 puts infoipget
 ```
@@ -236,12 +237,12 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `cpe` |  |
-| `hostname` |  |
+| `cpes` |  |
+| `hostnames` |  |
 | `ip` |  |
-| `port` |  |
-| `tag` |  |
-| `vuln` |  |
+| `ports` |  |
+| `tags` |  |
+| `vulns` |  |
 
 Operations: List.
 
@@ -266,12 +267,12 @@ Create an instance: `info_ip_get = client.InfoIpGet`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cpe` | `Array` |  |
-| `hostname` | `Array` |  |
+| `cpes` | `Array` |  |
+| `hostnames` | `Array` |  |
 | `ip` | `String` |  |
-| `port` | `Array` |  |
-| `tag` | `Array` |  |
-| `vuln` | `Array` |  |
+| `ports` | `Array` |  |
+| `tags` | `Array` |  |
+| `vulns` | `Array` |  |
 
 #### Example: List
 

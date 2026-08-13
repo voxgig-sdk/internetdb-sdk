@@ -16,11 +16,11 @@
 import pytest
 
 from internetdb_sdk import InternetdbSDK
-from core.error import InternetdbError
-from core.result import InternetdbResult
-from core.response import InternetdbResponse
-from core.spec import InternetdbSpec
-from feature.base_feature import InternetdbBaseFeature
+from internetdb_sdk.core.error import InternetdbError
+from internetdb_sdk.core.result import InternetdbResult
+from internetdb_sdk.core.response import InternetdbResponse
+from internetdb_sdk.core.spec import InternetdbSpec
+from internetdb_sdk.feature.base_feature import InternetdbBaseFeature
 
 
 def _client():

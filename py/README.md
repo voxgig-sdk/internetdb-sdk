@@ -43,7 +43,7 @@ error — iterate it directly.
 
 ```python
 try:
-    infoipgets = client.InfoIpGet().list()
+    infoipgets = client.InfoIpGet().list({"id": "example"})
     for infoipget in infoipgets:
         print(infoipget)
 except Exception as err:
@@ -124,7 +124,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = InternetdbSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 infoipget = client.InfoIpGet().list()
 # infoipget contains the mock response record
 ```
@@ -220,7 +221,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -242,12 +243,12 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `cpe` |  |
-| `hostname` |  |
+| `cpes` |  |
+| `hostnames` |  |
 | `ip` |  |
-| `port` |  |
-| `tag` |  |
-| `vuln` |  |
+| `ports` |  |
+| `tags` |  |
+| `vulns` |  |
 
 Operations: List.
 
@@ -272,17 +273,17 @@ Create an instance: `info_ip_get = client.InfoIpGet()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cpe` | `list` |  |
-| `hostname` | `list` |  |
+| `cpes` | `list` |  |
+| `hostnames` | `list` |  |
 | `ip` | `str` |  |
-| `port` | `list` |  |
-| `tag` | `list` |  |
-| `vuln` | `list` |  |
+| `ports` | `list` |  |
+| `tags` | `list` |  |
+| `vulns` | `list` |  |
 
 #### Example: List
 
 ```python
-info_ip_gets = client.InfoIpGet().list()
+info_ip_gets = client.InfoIpGet().list({"id": "example"})
 ```
 
 

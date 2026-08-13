@@ -10,30 +10,30 @@
 
 # InfoIpGet entity data model.
 #
-# @!attribute [rw] cpe
+# @!attribute [rw] cpes
 #   @return [Array]
 #
-# @!attribute [rw] hostname
+# @!attribute [rw] hostnames
 #   @return [Array]
 #
 # @!attribute [rw] ip
 #   @return [String]
 #
-# @!attribute [rw] port
+# @!attribute [rw] ports
 #   @return [Array]
 #
-# @!attribute [rw] tag
+# @!attribute [rw] tags
 #   @return [Array]
 #
-# @!attribute [rw] vuln
+# @!attribute [rw] vulns
 #   @return [Array]
 InfoIpGet = Struct.new(
-  :cpe,
-  :hostname,
+  :cpes,
+  :hostnames,
   :ip,
-  :port,
-  :tag,
-  :vuln,
+  :ports,
+  :tags,
+  :vulns,
   keyword_init: true
 )
 

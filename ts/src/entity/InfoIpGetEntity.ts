@@ -37,7 +37,7 @@ class InfoIpGetEntity extends InternetdbEntityBase<InfoIpGet> {
 
 
 
-  async list(this: any, reqmatch?: InfoIpGetListMatch, ctrl?: Control): Promise<InfoIpGet[]> {
+  async list(this: any, reqmatch?: InfoIpGetListMatch, ctrl?: Control): Promise<InfoIpGetEntity[]> {
 
     const utility = this._utility
 

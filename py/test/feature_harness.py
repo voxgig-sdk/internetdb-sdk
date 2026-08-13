@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import InternetdbControl
-from core.error import InternetdbError
-from core.result import InternetdbResult
-from core.spec import InternetdbSpec
+from internetdb_sdk.config import make_config
+from internetdb_sdk.features import _make_feature
+from internetdb_sdk.core.control import InternetdbControl
+from internetdb_sdk.core.error import InternetdbError
+from internetdb_sdk.core.result import InternetdbResult
+from internetdb_sdk.core.spec import InternetdbSpec
 
 
 # True when this SDK was generated with the named feature.

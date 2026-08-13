@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Internetdb SDK exists test
 
 import pytest
 from internetdb_sdk import InternetdbSDK

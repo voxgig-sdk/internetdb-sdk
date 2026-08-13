@@ -92,12 +92,12 @@ $info_ip_get = $client->InfoIpGet();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpe` | `array` | Yes |  |
-| `hostname` | `array` | Yes |  |
+| `cpes` | `array` | Yes |  |
+| `hostnames` | `array` | Yes |  |
 | `ip` | `string` | Yes |  |
-| `port` | `array` | Yes |  |
-| `tag` | `array` | Yes |  |
-| `vuln` | `array` | Yes |  |
+| `ports` | `array` | Yes |  |
+| `tags` | `array` | Yes |  |
+| `vulns` | `array` | Yes |  |
 
 ### Operations
 

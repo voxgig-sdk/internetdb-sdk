@@ -87,12 +87,12 @@ info_ip_get = client.InfoIpGet()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpe` | `list` | Yes |  |
-| `hostname` | `list` | Yes |  |
+| `cpes` | `list` | Yes |  |
+| `hostnames` | `list` | Yes |  |
 | `ip` | `str` | Yes |  |
-| `port` | `list` | Yes |  |
-| `tag` | `list` | Yes |  |
-| `vuln` | `list` | Yes |  |
+| `ports` | `list` | Yes |  |
+| `tags` | `list` | Yes |  |
+| `vulns` | `list` | Yes |  |
 
 ### Operations
 
@@ -101,7 +101,7 @@ info_ip_get = client.InfoIpGet()
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.InfoIpGet().list()
+results = client.InfoIpGet().list({"id": "example"})
 for info_ip_get in results:
     print(info_ip_get)
 ```

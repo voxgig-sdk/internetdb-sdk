@@ -260,12 +260,12 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"cpe"` |  |
-| `"hostname"` |  |
+| `"cpes"` |  |
+| `"hostnames"` |  |
 | `"ip"` |  |
-| `"port"` |  |
-| `"tag"` |  |
-| `"vuln"` |  |
+| `"ports"` |  |
+| `"tags"` |  |
+| `"vulns"` |  |
 
 Operations: List.
 
@@ -290,12 +290,12 @@ Create an instance: `infoIpGet := client.InfoIpGet(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cpe` | `[]any` |  |
-| `hostname` | `[]any` |  |
+| `cpes` | `[]any` |  |
+| `hostnames` | `[]any` |  |
 | `ip` | `string` |  |
-| `port` | `[]any` |  |
-| `tag` | `[]any` |  |
-| `vuln` | `[]any` |  |
+| `ports` | `[]any` |  |
+| `tags` | `[]any` |  |
+| `vulns` | `[]any` |  |
 
 #### Example: List
 

@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'Internetdb',
   }
 
 
@@ -56,14 +56,14 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "cpe",
+          "name": "cpes",
           "req": true,
           "type": "`$ARRAY`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "hostname",
+          "name": "hostnames",
           "req": true,
           "type": "`$ARRAY`",
           "index$": 1
@@ -77,21 +77,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "port",
+          "name": "ports",
           "req": true,
           "type": "`$ARRAY`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "tag",
+          "name": "tags",
           "req": true,
           "type": "`$ARRAY`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "vuln",
+          "name": "vulns",
           "req": true,
           "type": "`$ARRAY`",
           "index$": 5
@@ -118,6 +118,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/{ip}",
               "parts": [

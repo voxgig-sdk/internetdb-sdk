@@ -6,12 +6,12 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface InfoIpGet {
-  cpe: any[]
-  hostname: any[]
+  cpes: any[]
+  hostnames: any[]
   ip: string
-  port: any[]
-  tag: any[]
-  vuln: any[]
+  ports: any[]
+  tags: any[]
+  vulns: any[]
 }
 
 export interface InfoIpGetListMatch {

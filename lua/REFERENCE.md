@@ -90,12 +90,12 @@ local info_ip_get = client:InfoIpGet(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpe` | `table` | Yes |  |
-| `hostname` | `table` | Yes |  |
+| `cpes` | `table` | Yes |  |
+| `hostnames` | `table` | Yes |  |
 | `ip` | `string` | Yes |  |
-| `port` | `table` | Yes |  |
-| `tag` | `table` | Yes |  |
-| `vuln` | `table` | Yes |  |
+| `ports` | `table` | Yes |  |
+| `tags` | `table` | Yes |  |
+| `vulns` | `table` | Yes |  |
 
 ### Operations
 

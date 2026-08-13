@@ -38,7 +38,7 @@ try {
     // list() returns an array of InfoIpGet records — iterate directly.
     $infoipgets = $client->InfoIpGet()->list();
     foreach ($infoipgets as $item) {
-        echo $item["cpe"] . "\n";
+        echo $item["cpes"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -125,7 +125,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = InternetdbSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $infoipget = $client->InfoIpGet()->list();
 print_r($infoipget);
 ```
@@ -224,7 +225,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -246,12 +247,12 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `cpe` |  |
-| `hostname` |  |
+| `cpes` |  |
+| `hostnames` |  |
 | `ip` |  |
-| `port` |  |
-| `tag` |  |
-| `vuln` |  |
+| `ports` |  |
+| `tags` |  |
+| `vulns` |  |
 
 Operations: List.
 
@@ -276,12 +277,12 @@ Create an instance: `$info_ip_get = $client->InfoIpGet();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cpe` | `array` |  |
-| `hostname` | `array` |  |
+| `cpes` | `array` |  |
+| `hostnames` | `array` |  |
 | `ip` | `string` |  |
-| `port` | `array` |  |
-| `tag` | `array` |  |
-| `vuln` | `array` |  |
+| `ports` | `array` |  |
+| `tags` | `array` |  |
+| `vulns` | `array` |  |
 
 #### Example: List
 

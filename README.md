@@ -23,7 +23,7 @@ support (`list`):
 
 ```ts
 const client = new InternetdbSDK()
-const items = await client.InfoIpGet().list()
+const items = await client.InfoIpGet().list({ id: "example" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = InternetdbSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = InternetdbSDK.test({
+  entity: {
+    info_ip_get: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const infoipgets = await client.InfoIpGet().list()
-// infoipgets is an array of bare InfoIpGet records populated with mock data
+// infoipgets is an array of InfoIpGet entities, populated with mock data
+// — call infoipgets[0].data() for the record itself
 console.log(infoipgets)
 ```
 
@@ -110,8 +119,8 @@ import { InternetdbSDK } from '@voxgig-sdk/internetdb'
 
 const client = new InternetdbSDK()
 
-// List all infoipgets (returns InfoIpGet[])
-const infoipgets = await client.InfoIpGet().list()
+// List all infoipgets (returns InfoIpGetEntity[] — .data() for the record)
+const infoipgets = await client.InfoIpGet().list({ id: "example" })
 for (const infoipget of infoipgets) {
   console.log(infoipget)
 }
@@ -170,7 +179,7 @@ from internetdb_sdk import InternetdbSDK
 client = InternetdbSDK()
 
 # List all infoipgets (returns a list, raises on error)
-infoipgets = client.InfoIpGet().list()
+infoipgets = client.InfoIpGet().list({"id": "example"})
 for infoipget in infoipgets:
     print(infoipget)
 ```
@@ -343,6 +352,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://internetdb.shodan.io](https://internetdb.shodan.io)
 

@@ -6,12 +6,12 @@ main: kit: entity: info_ip_get: {
 
   fields: [
     {
-      name: "cpe"
+      name: "cpes"
       req: true
       type: "`$ARRAY`"
     }
     {
-      name: "hostname"
+      name: "hostnames"
       req: true
       type: "`$ARRAY`"
     }
@@ -21,17 +21,17 @@ main: kit: entity: info_ip_get: {
       type: "`$STRING`"
     }
     {
-      name: "port"
+      name: "ports"
       req: true
       type: "`$ARRAY`"
     }
     {
-      name: "tag"
+      name: "tags"
       req: true
       type: "`$ARRAY`"
     }
     {
-      name: "vuln"
+      name: "vulns"
       req: true
       type: "`$ARRAY`"
     }

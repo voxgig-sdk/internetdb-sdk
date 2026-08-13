@@ -15,12 +15,12 @@ declare(strict_types=1);
 /** InfoIpGet entity data model. */
 class InfoIpGet
 {
-    public array $cpe;
-    public array $hostname;
+    public array $cpes;
+    public array $hostnames;
     public string $ip;
-    public array $port;
-    public array $tag;
-    public array $vuln;
+    public array $ports;
+    public array $tags;
+    public array $vulns;
 }
 
 /** Request payload for InfoIpGet#list. */

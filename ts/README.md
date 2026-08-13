@@ -35,10 +35,12 @@ const client = new InternetdbSDK()
 
 ### 2. List infoipget records
 
-`list()` resolves to an array of InfoIpGet objects — iterate it directly:
+`list()` resolves to an array of InfoIpGet ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
-const infoipgets = await client.InfoIpGet().list()
+const infoipgets = await client.InfoIpGet().list({ id: "example" })
 
 for (const infoipget of infoipgets) {
   console.log(infoipget)
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = InternetdbSDK.test()
 
 const infoipget = await client.InfoIpGet().list()
-// infoipget is a bare entity populated with mock response data
+// infoipget is the entity, populated with mock response data
+// — call infoipget.data() for the record itself
 console.log(infoipget)
 ```
 
@@ -284,12 +287,12 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `cpe` |  |
-| `hostname` |  |
+| `cpes` |  |
+| `hostnames` |  |
 | `ip` |  |
-| `port` |  |
-| `tag` |  |
-| `vuln` |  |
+| `ports` |  |
+| `tags` |  |
+| `vulns` |  |
 
 Operations: list.
 
@@ -314,17 +317,17 @@ Create an instance: `const info_ip_get = client.InfoIpGet()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cpe` | `any[]` |  |
-| `hostname` | `any[]` |  |
+| `cpes` | `any[]` |  |
+| `hostnames` | `any[]` |  |
 | `ip` | `string` |  |
-| `port` | `any[]` |  |
-| `tag` | `any[]` |  |
-| `vuln` | `any[]` |  |
+| `ports` | `any[]` |  |
+| `tags` | `any[]` |  |
+| `vulns` | `any[]` |  |
 
 #### Example: List
 
 ```ts
-const info_ip_gets = await client.InfoIpGet().list()
+const info_ip_gets = await client.InfoIpGet().list({ id: "example" })
 ```
 
 

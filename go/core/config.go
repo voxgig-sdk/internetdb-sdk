@@ -26,14 +26,14 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "cpe",
+						"name": "cpes",
 						"req": true,
 						"type": "`$ARRAY`",
 						"index$": 0,
 					},
 					map[string]any{
 						"active": true,
-						"name": "hostname",
+						"name": "hostnames",
 						"req": true,
 						"type": "`$ARRAY`",
 						"index$": 1,
@@ -47,21 +47,21 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "port",
+						"name": "ports",
 						"req": true,
 						"type": "`$ARRAY`",
 						"index$": 3,
 					},
 					map[string]any{
 						"active": true,
-						"name": "tag",
+						"name": "tags",
 						"req": true,
 						"type": "`$ARRAY`",
 						"index$": 4,
 					},
 					map[string]any{
 						"active": true,
-						"name": "vuln",
+						"name": "vulns",
 						"req": true,
 						"type": "`$ARRAY`",
 						"index$": 5,
@@ -88,6 +88,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/{ip}",
 								"parts": []any{
@@ -110,7 +111,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{

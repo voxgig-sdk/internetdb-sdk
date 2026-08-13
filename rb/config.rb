@@ -27,14 +27,14 @@ module InternetdbConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "cpe",
+              "name" => "cpes",
               "req" => true,
               "type" => "`$ARRAY`",
               "index$" => 0,
             },
             {
               "active" => true,
-              "name" => "hostname",
+              "name" => "hostnames",
               "req" => true,
               "type" => "`$ARRAY`",
               "index$" => 1,
@@ -48,21 +48,21 @@ module InternetdbConfig
             },
             {
               "active" => true,
-              "name" => "port",
+              "name" => "ports",
               "req" => true,
               "type" => "`$ARRAY`",
               "index$" => 3,
             },
             {
               "active" => true,
-              "name" => "tag",
+              "name" => "tags",
               "req" => true,
               "type" => "`$ARRAY`",
               "index$" => 4,
             },
             {
               "active" => true,
-              "name" => "vuln",
+              "name" => "vulns",
               "req" => true,
               "type" => "`$ARRAY`",
               "index$" => 5,
@@ -89,6 +89,7 @@ module InternetdbConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/{ip}",
                   "parts" => [
