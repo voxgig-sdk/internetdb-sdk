@@ -15,7 +15,7 @@ require_relative "../Internetdb_sdk"
 module InternetdbFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = InternetdbConfig.make_config["feature"]
+    f = InternetdbConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

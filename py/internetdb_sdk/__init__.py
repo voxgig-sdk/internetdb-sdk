@@ -23,8 +23,8 @@ class InternetdbSDK:
         utility = InternetdbUtility()
         self._utility = utility
 
-        from internetdb_sdk.config import make_config
-        config = make_config()
+        from internetdb_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

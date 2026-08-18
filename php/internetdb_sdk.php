@@ -40,7 +40,7 @@ class InternetdbSDK
         $utility = new InternetdbUtility();
         $this->_utility = $utility;
 
-        $config = InternetdbConfig::make_config();
+        $config = InternetdbConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

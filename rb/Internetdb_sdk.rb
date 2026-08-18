@@ -28,7 +28,7 @@ class InternetdbSDK
     utility = InternetdbUtility.new
     @_utility = utility
 
-    config = InternetdbConfig.make_config
+    config = InternetdbConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
