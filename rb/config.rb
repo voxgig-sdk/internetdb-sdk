@@ -19,6 +19,9 @@ module InternetdbConfig
     {
       "main" => {
         "name" => "Internetdb",
+        "slug" => "internetdb",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
