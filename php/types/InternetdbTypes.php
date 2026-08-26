@@ -17,6 +17,7 @@ class InfoIpGet
 {
     public array $cpes;
     public array $hostnames;
+    public ?string $id = null;
     public string $ip;
     public array $ports;
     public array $tags;

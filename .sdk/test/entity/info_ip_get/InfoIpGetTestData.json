@@ -4,7 +4,8 @@
       "INFO_IP_GET00": {
         "cpes": [],
         "hostnames": [],
-        "ip": "s3e",
+        "id": "INFO_IP_GET00",
+        "ip": "s49",
         "ports": [],
         "tags": [],
         "vulns": []
@@ -12,7 +13,8 @@
       "INFO_IP_GET01": {
         "cpes": [],
         "hostnames": [],
-        "ip": "s7a",
+        "id": "INFO_IP_GET01",
+        "ip": "s8f",
         "ports": [],
         "tags": [],
         "vulns": []
@@ -20,7 +22,8 @@
       "INFO_IP_GET02": {
         "cpes": [],
         "hostnames": [],
-        "ip": "sb6",
+        "id": "INFO_IP_GET02",
+        "ip": "sd5",
         "ports": [],
         "tags": [],
         "vulns": []
@@ -32,7 +35,7 @@
       "info_ip_get_ref01": {
         "cpes": [],
         "hostnames": [],
-        "ip": "sf2",
+        "ip": "s11b",
         "ports": [],
         "tags": [],
         "vulns": []

@@ -118,6 +118,7 @@ const info_ip_get = client.InfoIpGet()
 | --- | --- | --- | --- |
 | `cpes` | `any[]` | Yes |  |
 | `hostnames` | `any[]` | Yes |  |
+| `id` | `string` | No |  |
 | `ip` | `string` | Yes |  |
 | `ports` | `any[]` | Yes |  |
 | `tags` | `any[]` | Yes |  |

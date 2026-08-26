@@ -94,6 +94,7 @@ $info_ip_get = $client->InfoIpGet();
 | --- | --- | --- | --- |
 | `cpes` | `array` | Yes |  |
 | `hostnames` | `array` | Yes |  |
+| `id` | `string` | No |  |
 | `ip` | `string` | Yes |  |
 | `ports` | `array` | Yes |  |
 | `tags` | `array` | Yes |  |

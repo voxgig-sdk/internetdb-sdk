@@ -262,6 +262,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | --- | --- |
 | `"cpes"` |  |
 | `"hostnames"` |  |
+| `"id"` |  |
 | `"ip"` |  |
 | `"ports"` |  |
 | `"tags"` |  |
@@ -292,6 +293,7 @@ Create an instance: `infoIpGet := client.InfoIpGet(nil)`
 | --- | --- | --- |
 | `cpes` | `[]any` |  |
 | `hostnames` | `[]any` |  |
+| `id` | `string` |  |
 | `ip` | `string` |  |
 | `ports` | `[]any` |  |
 | `tags` | `[]any` |  |

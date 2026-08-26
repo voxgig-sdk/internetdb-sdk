@@ -16,6 +16,9 @@
 # @!attribute [rw] hostnames
 #   @return [Array]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] ip
 #   @return [String]
 #
@@ -30,6 +33,7 @@
 InfoIpGet = Struct.new(
   :cpes,
   :hostnames,
+  :id,
   :ip,
   :ports,
   :tags,

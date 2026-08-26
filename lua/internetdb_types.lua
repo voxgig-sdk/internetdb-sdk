@@ -9,6 +9,7 @@
 ---@class InfoIpGet
 ---@field cpes table
 ---@field hostnames table
+---@field id? string
 ---@field ip string
 ---@field ports table
 ---@field tags table

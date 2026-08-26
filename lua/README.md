@@ -43,7 +43,7 @@ local infoipgets, err = client:InfoIpGet():list()
 if err then error(err) end
 
 for _, item in ipairs(infoipgets) do
-  print(item["ip"])
+  print(item["id"], item["ip"])
 end
 ```
 
@@ -233,6 +233,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | --- | --- |
 | `cpes` |  |
 | `hostnames` |  |
+| `id` |  |
 | `ip` |  |
 | `ports` |  |
 | `tags` |  |
@@ -263,6 +264,7 @@ Create an instance: `local info_ip_get = client:InfoIpGet(nil)`
 | --- | --- | --- |
 | `cpes` | `table` |  |
 | `hostnames` | `table` |  |
+| `id` | `string` |  |
 | `ip` | `string` |  |
 | `ports` | `table` |  |
 | `tags` | `table` |  |

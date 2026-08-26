@@ -92,6 +92,7 @@ local info_ip_get = client:InfoIpGet(nil)
 | --- | --- | --- | --- |
 | `cpes` | `table` | Yes |  |
 | `hostnames` | `table` | Yes |  |
+| `id` | `string` | No |  |
 | `ip` | `string` | Yes |  |
 | `ports` | `table` | Yes |  |
 | `tags` | `table` | Yes |  |

@@ -245,6 +245,7 @@ On error, `ok` is `False` and `err` contains the error value.
 | --- | --- |
 | `cpes` |  |
 | `hostnames` |  |
+| `id` |  |
 | `ip` |  |
 | `ports` |  |
 | `tags` |  |
@@ -275,6 +276,7 @@ Create an instance: `info_ip_get = client.InfoIpGet()`
 | --- | --- | --- |
 | `cpes` | `list` |  |
 | `hostnames` | `list` |  |
+| `id` | `str` |  |
 | `ip` | `str` |  |
 | `ports` | `list` |  |
 | `tags` | `list` |  |

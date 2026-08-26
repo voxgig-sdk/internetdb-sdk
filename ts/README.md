@@ -146,7 +146,7 @@ await entity.list()
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data)
+console.log(data.id)
 ```
 
 ### Add custom middleware
@@ -289,6 +289,7 @@ The `prepare()` method returns:
 | --- | --- |
 | `cpes` |  |
 | `hostnames` |  |
+| `id` |  |
 | `ip` |  |
 | `ports` |  |
 | `tags` |  |
@@ -319,6 +320,7 @@ Create an instance: `const info_ip_get = client.InfoIpGet()`
 | --- | --- | --- |
 | `cpes` | `any[]` |  |
 | `hostnames` | `any[]` |  |
+| `id` | `string` |  |
 | `ip` | `string` |  |
 | `ports` | `any[]` |  |
 | `tags` | `any[]` |  |

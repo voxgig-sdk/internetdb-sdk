@@ -42,6 +42,7 @@ class InternetdbConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
@@ -65,6 +66,10 @@ class InternetdbConfig
               'name' => 'hostnames',
               'req' => true,
               'type' => '`$ARRAY`',
+            ],
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
             ],
             [
               'name' => 'ip',

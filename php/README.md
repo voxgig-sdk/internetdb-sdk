@@ -38,7 +38,7 @@ try {
     // list() returns an array of InfoIpGet records — iterate directly.
     $infoipgets = $client->InfoIpGet()->list();
     foreach ($infoipgets as $item) {
-        echo $item["cpes"] . "\n";
+        echo $item["id"] . " " . $item["cpes"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -249,6 +249,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | --- | --- |
 | `cpes` |  |
 | `hostnames` |  |
+| `id` |  |
 | `ip` |  |
 | `ports` |  |
 | `tags` |  |
@@ -279,6 +280,7 @@ Create an instance: `$info_ip_get = $client->InfoIpGet();`
 | --- | --- | --- |
 | `cpes` | `array` |  |
 | `hostnames` | `array` |  |
+| `id` | `string` |  |
 | `ip` | `string` |  |
 | `ports` | `array` |  |
 | `tags` | `array` |  |

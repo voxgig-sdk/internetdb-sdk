@@ -28,6 +28,7 @@ module InternetdbConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
@@ -51,6 +52,10 @@ module InternetdbConfig
               "name" => "hostnames",
               "req" => true,
               "type" => "`$ARRAY`",
+            },
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
             },
             {
               "name" => "ip",

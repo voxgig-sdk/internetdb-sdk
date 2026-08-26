@@ -95,6 +95,7 @@ info_ip_get = client.InfoIpGet
 | --- | --- | --- | --- |
 | `cpes` | `Array` | Yes |  |
 | `hostnames` | `Array` | Yes |  |
+| `id` | `String` | No |  |
 | `ip` | `String` | Yes |  |
 | `ports` | `Array` | Yes |  |
 | `tags` | `Array` | Yes |  |

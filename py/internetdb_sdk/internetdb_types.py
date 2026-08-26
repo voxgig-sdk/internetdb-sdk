@@ -16,13 +16,17 @@ from __future__ import annotations
 from typing import TypedDict, Any
 
 
-class InfoIpGet(TypedDict):
+class InfoIpGetRequired(TypedDict):
     cpes: list
     hostnames: list
     ip: str
     ports: list
     tags: list
     vulns: list
+
+
+class InfoIpGet(InfoIpGetRequired, total=False):
+    id: str
 
 
 class InfoIpGetListMatch(TypedDict):

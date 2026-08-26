@@ -37,7 +37,7 @@ begin
   # list returns an Array of InfoIpGet records — iterate directly.
   infoipgets = client.InfoIpGet.list
   infoipgets.each do |item|
-    puts "#{item["cpes"]}"
+    puts "#{item["id"]} #{item["cpes"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -239,6 +239,7 @@ returns a result `Hash` with these keys:
 | --- | --- |
 | `cpes` |  |
 | `hostnames` |  |
+| `id` |  |
 | `ip` |  |
 | `ports` |  |
 | `tags` |  |
@@ -269,6 +270,7 @@ Create an instance: `info_ip_get = client.InfoIpGet`
 | --- | --- | --- |
 | `cpes` | `Array` |  |
 | `hostnames` | `Array` |  |
+| `id` | `String` |  |
 | `ip` | `String` |  |
 | `ports` | `Array` |  |
 | `tags` | `Array` |  |

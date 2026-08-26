@@ -100,6 +100,7 @@ fmt.Println(infoIpGet.GetName()) // "info_ip_get"
 | --- | --- | --- | --- |
 | `cpes` | `[]any` | Yes |  |
 | `hostnames` | `[]any` | Yes |  |
+| `id` | `string` | No |  |
 | `ip` | `string` | Yes |  |
 | `ports` | `[]any` | Yes |  |
 | `tags` | `[]any` | Yes |  |

@@ -89,6 +89,7 @@ info_ip_get = client.InfoIpGet()
 | --- | --- | --- | --- |
 | `cpes` | `list` | Yes |  |
 | `hostnames` | `list` | Yes |  |
+| `id` | `str` | No |  |
 | `ip` | `str` | Yes |  |
 | `ports` | `list` | Yes |  |
 | `tags` | `list` | Yes |  |

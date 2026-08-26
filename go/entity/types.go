@@ -16,6 +16,7 @@ import (
 type InfoIpGet struct {
 	Cpes []any `json:"cpes"`
 	Hostnames []any `json:"hostnames"`
+	Id *string `json:"id,omitempty"`
 	Ip string `json:"ip"`
 	Ports []any `json:"ports"`
 	Tags []any `json:"tags"`
