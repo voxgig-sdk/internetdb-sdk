@@ -78,6 +78,10 @@ module InternetdbConfig
               "type" => "`$ARRAY`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "info_ip_get",
           "op" => {
             "list" => {
@@ -99,14 +103,16 @@ module InternetdbConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/{ip}",
-                  "parts" => [
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "ip" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "id",
@@ -116,6 +122,9 @@ module InternetdbConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "{id}",
+                  ],
                 },
               ],
             },

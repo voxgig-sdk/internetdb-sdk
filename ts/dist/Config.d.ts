@@ -1,0 +1,88 @@
+import { BaseFeature } from './feature/base/BaseFeature';
+declare const FEATURE_PLUGINS: Record<string, any[]>;
+declare class Config {
+    makeFeature(this: any, fn: string): BaseFeature;
+    hasFeature(this: any, fn: string): boolean;
+    main: {
+        name: string;
+        slug: string;
+        version: string;
+        target: string;
+    };
+    feature: {
+        test: {
+            options: {
+                active: boolean;
+            };
+            transport: string;
+        };
+    };
+    options: {
+        base: string;
+        headers: {
+            "content-type": string;
+        };
+        entity: {
+            info_ip_get: {};
+        };
+    };
+    entity: {
+        info_ip_get: {
+            fields: ({
+                name: string;
+                req: boolean;
+                type: string;
+            } | {
+                name: string;
+                type: string;
+                req?: undefined;
+            })[];
+            id: {
+                field: string;
+                name: string;
+            };
+            name: string;
+            op: {
+                list: {
+                    input: string;
+                    name: string;
+                    points: {
+                        args: {
+                            params: {
+                                kind: string;
+                                name: string;
+                                orig: string;
+                                reqd: boolean;
+                                type: string;
+                            }[];
+                        };
+                        kind: string;
+                        method: string;
+                        orig: string;
+                        rename: {
+                            param: {
+                                ip: string;
+                            };
+                        };
+                        segments: {
+                            var: string;
+                        }[];
+                        select: {
+                            exist: string[];
+                        };
+                        transform: {
+                            req: string;
+                            res: string;
+                        };
+                        parts: string[];
+                    }[];
+                };
+            };
+            relations: {
+                ancestors: never[];
+            };
+        };
+    };
+}
+declare const config: Config;
+export { config, FEATURE_PLUGINS, };

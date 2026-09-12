@@ -66,14 +66,16 @@ main: kit: entity: info_ip_get: {
           }
           method: "GET"
           orig: "/{ip}"
-          parts: [
-            "{id}"
-          ]
           rename: {
             param: {
               ip: "id"
             }
           }
+          segments: [
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"

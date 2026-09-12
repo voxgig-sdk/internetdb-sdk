@@ -92,6 +92,10 @@ class InternetdbConfig
               'type' => '`$ARRAY`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'info_ip_get',
           'op' => [
             'list' => [
@@ -113,12 +117,14 @@ class InternetdbConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/{ip}',
-                  'parts' => [
-                    '{id}',
-                  ],
                   'rename' => [
                     'param' => [
                       'ip' => 'id',
+                    ],
+                  ],
+                  'segments' => [
+                    [
+                      'var' => 'id',
                     ],
                   ],
                   'select' => [
@@ -129,6 +135,9 @@ class InternetdbConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    '{id}',
                   ],
                 ],
               ],
