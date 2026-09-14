@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { InternetdbSDK } from '@voxgig-sdk/internetdb'
+import { InternetdbSDK } from '@voxgig-sdk/internetdb-sdk'
 
 const client = new InternetdbSDK()
 ```
@@ -415,7 +415,7 @@ internetdb/
 Import the SDK from the package root:
 
 ```ts
-import { InternetdbSDK } from '@voxgig-sdk/internetdb'
+import { InternetdbSDK } from '@voxgig-sdk/internetdb-sdk'
 ```
 
 ### Entity state

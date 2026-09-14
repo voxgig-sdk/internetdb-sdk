@@ -105,7 +105,7 @@ local results, err = client:InfoIpGet():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/internetdb` | publish pending — [install from git tag](https://github.com/voxgig-sdk/internetdb-sdk/releases) |
+| TypeScript | `@voxgig-sdk/internetdb-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/internetdb-sdk/releases) |
 | Python | `voxgig-sdk-internetdb` | publish pending — [install from git tag](https://github.com/voxgig-sdk/internetdb-sdk/releases) |
 | PHP | `voxgig-sdk/internetdb` | publish pending — [install from git tag](https://github.com/voxgig-sdk/internetdb-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/internetdb-sdk/go` | `go get github.com/voxgig-sdk/internetdb-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:InfoIpGet():list()
 ### TypeScript
 
 ```ts
-import { InternetdbSDK } from '@voxgig-sdk/internetdb'
+import { InternetdbSDK } from '@voxgig-sdk/internetdb-sdk'
 
 const client = new InternetdbSDK()
 
