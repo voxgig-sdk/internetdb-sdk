@@ -64,6 +64,12 @@ main: kit: entity: info_ip_get: {
               }
             ]
           }
+          contract: {
+            id: "GET /{ip}"
+            json: "{\"operationId\":\"info__ip__get\",\"parameters\":[{\"in\":\"path\",\"name\":\"ip\",\"required\":true,\"schema\":{\"title\":\"Ip\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"cpes\":{\"items\":{\"type\":\"string\"},\"title\":\"Cpes\",\"type\":\"array\"},\"hostnames\":{\"items\":{\"type\":\"string\"},\"title\":\"Hostnames\",\"type\":\"array\"},\"ip\":{\"title\":\"Ip\",\"type\":\"string\"},\"ports\":{\"items\":{\"type\":\"integer\"},\"title\":\"Ports\",\"type\":\"array\"},\"tags\":{\"items\":{\"type\":\"string\"},\"title\":\"Tags\",\"type\":\"array\"},\"vulns\":{\"items\":{\"type\":\"string\"},\"title\":\"Vulns\",\"type\":\"array\"}},\"required\":[\"cpes\",\"hostnames\",\"ip\",\"ports\",\"tags\",\"vulns\"],\"title\":\"Host\",\"type\":\"object\"}}},\"description\":\"Successful Response\"},\"422\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"detail\":{\"items\":{\"properties\":{\"loc\":{\"items\":{\"type\":\"string\"},\"title\":\"Location\",\"type\":\"array\"},\"msg\":{\"title\":\"Message\",\"type\":\"string\"},\"type\":{\"title\":\"Error Type\",\"type\":\"string\"}},\"required\":[\"loc\",\"msg\",\"type\"],\"title\":\"ValidationError\",\"type\":\"object\"},\"title\":\"Detail\",\"type\":\"array\"}},\"title\":\"HTTPValidationError\",\"type\":\"object\"}}},\"description\":\"Validation Error\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/{ip}"
           rename: {

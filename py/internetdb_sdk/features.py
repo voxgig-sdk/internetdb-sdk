@@ -1,12 +1,18 @@
 # Internetdb SDK feature factory
 
 from internetdb_sdk.feature.base_feature import InternetdbBaseFeature
+from internetdb_sdk.feature.ratelimit_feature import InternetdbRatelimitFeature
+from internetdb_sdk.feature.retry_feature import InternetdbRetryFeature
 from internetdb_sdk.feature.test_feature import InternetdbTestFeature
+from internetdb_sdk.feature.timeout_feature import InternetdbTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: InternetdbBaseFeature(),
+    "ratelimit": lambda: InternetdbRatelimitFeature(),
+    "retry": lambda: InternetdbRetryFeature(),
     "test": lambda: InternetdbTestFeature(),
+    "timeout": lambda: InternetdbTimeoutFeature(),
 }
 
 
